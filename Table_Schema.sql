@@ -1,3 +1,4 @@
+
 CREATE TABLE Security_Question
 (
   Q_ID INT NOT NULL,
@@ -95,3 +96,4 @@ CREATE TABLE Car_Details
   PRIMARY KEY (Plate_Nos),
   FOREIGN KEY (Service_id) REFERENCES Car_Service(Service_id)
 );
+select *from Car_Details ;
