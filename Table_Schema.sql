@@ -5,7 +5,7 @@ CREATE TABLE Security_Question
   Question varchar(100) NOT NULL,
   PRIMARY KEY (Q_ID)
 );
-
+select *from Security_Question ;
 
 CREATE TABLE users
 (
@@ -16,7 +16,7 @@ CREATE TABLE users
   PRIMARY KEY (E_Mail),
   FOREIGN KEY (Q_ID) REFERENCES Security_Question(Q_ID)
 );
-
+select *from users ;
 
 CREATE TABLE Traveller
 (
@@ -30,7 +30,7 @@ CREATE TABLE Traveller
   T_E_Mail VARCHAR(20) not null REFERENCES Users(E_Mail),
   PRIMARY KEY (T_ID)
 );
-
+select *from Traveller ;
 
 CREATE TABLE owners
 (
@@ -39,6 +39,7 @@ CREATE TABLE owners
   O_E_Mail VARCHAR(20) not null REFERENCES Users(E_Mail),
   PRIMARY KEY (O_ID)
 );
+select *from owners ;
 
 
 CREATE TABLE Auto_Service
@@ -52,7 +53,7 @@ CREATE TABLE Auto_Service
   A_O_ID VARCHAR(20) not null REFERENCES Users(O_ID),
   PRIMARY KEY (A_ID)
 );
-
+select *from Auto_Service ;
 
 CREATE TABLE Car_Details
 (
@@ -64,7 +65,7 @@ CREATE TABLE Car_Details
   PRIMARY KEY (Plate_Nos),
   C_S_ID VARCHAR(20) not null REFERENCES Car_Service(Service_id)
 );
-
+select *from Car_Details ;
 
 CREATE TABLE Preferences
 (
@@ -74,6 +75,7 @@ CREATE TABLE Preferences
   Gender varchar(10) NOT NULL,
   P_S_ID VARCHAR(20) not null REFERENCES Car_Service(Service_id)
 );
+select * from Preferences;
 
 
 CREATE TABLE Route
@@ -88,6 +90,7 @@ CREATE TABLE Route
   S_S_ID VARCHAR(20) not null REFERENCES Car_Service(Service_id),
   PRIMARY KEY(R_ID)
 );
+select * from Route;
  
  CREATE TABLE Car_Service
 (
@@ -99,17 +102,6 @@ CREATE TABLE Route
   C_O_ID VARCHAR(20) not null REFERENCES Users(O_ID),
   C_T_ID VARCHAR(20) not null REFERENCES Traveller(T_ID)
 );
+select *from Car_Service ;
 
 
-CREATE TABLE Car_Details
-(
-  Plate_Nos INT NOT NULL,
-  Color INT NOT NULL,
-  AC_NonAC INT NOT NULL,
-  Model INT NOT NULL,
-  Capacity INT NOT NULL,
-  Service_id INT NOT NULL,
-  PRIMARY KEY (Plate_Nos),
-  FOREIGN KEY (Service_id) REFERENCES Car_Service(Service_id)
-);
-select *from Car_Details ;
